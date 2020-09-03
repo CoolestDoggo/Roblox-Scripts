@@ -17,7 +17,7 @@ end)
 -- Make player visible
 
 for _, part in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
-	if part:IsA("BasePart") then
+	if part:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then
 		part.Transparency = 0
 	end
 end
