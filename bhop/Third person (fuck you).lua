@@ -7,7 +7,6 @@ local camera = game:GetService("Workspace").Camera
 setreadonly(mt, false)
 
 mt.__newindex = newcclosure(function(obj, prop, val)
-	-- checking if camera is probably redundant
 	if prop == "CoordinateFrame" and obj == camera then
 		val += val.LookVector * -distance
 	end
@@ -18,7 +17,7 @@ end)
 -- Make player visible
 
 for _, part in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
-	if part:IsA("BasePart") then
+	if part:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then
 		part.Transparency = 0
 	end
 end
