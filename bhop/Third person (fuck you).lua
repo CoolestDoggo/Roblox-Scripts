@@ -7,7 +7,6 @@ local camera = game:GetService("Workspace").Camera
 setreadonly(mt, false)
 
 mt.__newindex = newcclosure(function(obj, prop, val)
-	-- checking if camera is probably redundant
 	if prop == "CoordinateFrame" and obj == camera then
 		val += val.LookVector * -distance
 	end
