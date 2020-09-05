@@ -4,8 +4,8 @@ local commands = {}
 local call
 
 for _, t in pairs(getreg()) do
-	if type(t) == 'table' and t['Call'] then
-		call = t['Call']
+	if type(t) == "table" and t["Call"] then
+		call = t["Call"]
 		break
 	end
 end
