@@ -19,7 +19,15 @@ uis.InputBegan:Connect(function(input)
 end)
 
 function commands:add(key, text)
-	binds[key] = text
+	if not binds[key] then
+		binds[key] = text
+	end
+end
+
+function commands:replace(key, text)
+	if binds[key] then
+		binds[key] = text
+	end
 end
 
 function commands:remove(key)
