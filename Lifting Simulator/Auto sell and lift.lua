@@ -1,8 +1,4 @@
-local function fire(...)
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer({...})
-end
-
 while wait(.1) do
-    fire("GainMuscle")
-    fire("SellMuscle")
+	game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"GainMuscle"})
+	game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"SellMuscle"})
 end
