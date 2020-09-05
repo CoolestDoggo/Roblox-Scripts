@@ -1,4 +1,5 @@
 local uis = game:GetService("UserInputService")
+local player = game:GetService("Players").LocalPlayer
 local binds = {}
 local commands = {}
 local call
@@ -10,10 +11,27 @@ for _, t in pairs(getreg()) do
 	end
 end
 
+local function checkChatting()
+	local QBox = player.PlayerGui:FindFirstChild("QBox")
+
+	if QBox then
+		for _, v in pairs(QBox:GetDescendants()) do
+			if v:IsA("TextBox") and v.BackgroundColor3 == Color3.new(1,1,1) and v.BackgroundTransparency < 1 then
+				return true
+			end
+		end
+	end
+
+	return false
+end
+
+
 uis.InputBegan:Connect(function(input)
-	for key, text in pairs(binds) do
-		if input.KeyCode.Name == key then
-			call("Chatted", text)
+	if not checkChatting() then
+		for key, text in pairs(binds) do
+			if input.KeyCode.Name == key then
+				call("Chatted", text)
+			end
 		end
 	end
 end)
