@@ -16,7 +16,7 @@ local function checkChatting()
 
 	if QBox then
 		for _, v in pairs(QBox:GetDescendants()) do
-			if v:IsA("TextBox") and v.BackgroundColor3 == Color3.new(1,1,1) and v.BackgroundTransparency < 1 then
+			if v:IsA("TextBox") and v.BackgroundColor3 == Color3.new(1, 1, 1) and v.BackgroundTransparency < 1 then
 				return true
 			end
 		end
