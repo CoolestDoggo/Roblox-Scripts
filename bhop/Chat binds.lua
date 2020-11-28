@@ -25,14 +25,10 @@ local function checkChatting()
 	return false
 end
 
-
+-- Definitely better than looping through it like i was before
 uis.InputBegan:Connect(function(input)
-	if not checkChatting() then
-		for key, text in pairs(binds) do
-			if input.KeyCode.Name == key then
-				call("Chatted", text)
-			end
-		end
+	if not checkChatting() and binds[input.KeyCode.Name] then
+		call("Chatted", binds[input.KeyCode.Name])
 	end
 end)
 
