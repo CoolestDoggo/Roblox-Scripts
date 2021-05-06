@@ -6,9 +6,9 @@ while wait(.1) do
 	local curBattle = playerFolder and playerFolder:FindFirstChild("CurrentBattle")
 	
 	if curBattle then
-		for i,v in pairs(curBattle:GetChildren()) do
-			if v.Name:find("Enemy") and v.Health.Value > 0 then
-				battleClick:InvokeServer(v)
+		for _, enemy in next, curBattle:GetChildren() do
+			if enemy.Name:find("Enemy") and enemy.Health.Value > 0 then
+				battleClick:InvokeServer(enemy)
 			end
 		end
 	end

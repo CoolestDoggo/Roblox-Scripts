@@ -7,7 +7,7 @@ local plr =  game.Players.LocalPlayer
 local sqrt = math.sqrt
 local last = math.huge
 
-for _, t in pairs(getreg()) do
+for _, t in next, getreg() do
 	if type(t) == 'table' and t.GetVelocity then
 		movement = t.GetVelocity
 	end

@@ -4,7 +4,7 @@ local function find(name)
 	return game.Workspace:FindFirstChild(name, true)
 end
 
-for _, t in pairs(getreg()) do
+for _, t in next, getreg() do
 	if type(t) == 'table' and t['Call'] then
 		call = t['Call']
 		break

@@ -4,7 +4,7 @@ local binds = {}
 local commands = {}
 local call
 
-for _, t in pairs(getreg()) do
+for _, t in next, getreg() do
 	if type(t) == "table" and t["Call"] then
 		call = t["Call"]
 		break
@@ -15,7 +15,7 @@ local function checkChatting()
 	local QBox = player.PlayerGui:FindFirstChild("QBox")
 
 	if QBox then
-		for _, v in pairs(QBox:GetDescendants()) do
+		for _, v in next, QBox:GetDescendants() do
 			if v:IsA("TextBox") and v.BackgroundColor3 == Color3.new(1, 1, 1) and v.BackgroundTransparency < 1 then
 				return true
 			end
